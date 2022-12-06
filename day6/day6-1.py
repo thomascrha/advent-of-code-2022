@@ -19,13 +19,14 @@ def get_marker(packet):
             continue
 
         marker_set.append(character)
+        if len(marker_set) > 4:
+            # remove the first item
+            marker_set = marker_set[1:]
+
         # check if all chars are unique
         if len(marker_set) == len(set(marker_set)):
             return inx
 
-        if len(marker_set) > 4:
-            # remove the first item
-            marker_set = marker_set[1:]
 
 print(get_marker(get_input()))
 
